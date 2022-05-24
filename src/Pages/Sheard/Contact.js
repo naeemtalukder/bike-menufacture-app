@@ -25,7 +25,7 @@ const Contact = () => {
                         placeholder='Requirement Details'
                         rows={4}
                     ></textarea>
-                    <button className="btn bg-accent text-bold text-white uppercase">Submit</button>
+                    <button className="btn bg-accent text-bold text-white  px-20 uppercase">Submit</button>
                 </div>
             </div>
         </div>

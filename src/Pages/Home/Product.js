@@ -12,6 +12,7 @@ const Product = ({ product }) => {
                 <p><small>Price: ${price}</small></p>
                 <p>Quantity: {quantity}</p>
                 <p>{description}</p>
+                <button className="btn btn-accent text-bold text-white uppercase">Bay Now</button>
             </div>
         </div>
     );

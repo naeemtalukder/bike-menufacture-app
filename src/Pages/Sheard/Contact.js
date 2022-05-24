@@ -12,19 +12,18 @@ const Contact = () => {
                 <div className='grid grid-cols-1 justify-items-center gap-5'>
                     <input
                         type='text'
-                        placeholder='Type Your Name'
+                        placeholder='Your Email Address'
                         className='input w-full max-w-md'
                     />
                     <input
                         type='text'
-                        placeholder='Your Email Address'
+                        placeholder='Phone Number'
                         className='input w-full max-w-md'
                     />
-
                     <textarea
                         className='textarea w-full max-w-md'
-                        placeholder='Type your message'
-                        rows={6}
+                        placeholder='Requirement Details'
+                        rows={4}
                     ></textarea>
                     <button className="btn bg-accent text-bold text-white uppercase">Submit</button>
                 </div>

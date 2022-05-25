@@ -19,14 +19,14 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
-    let signInError;
+    let loginError;
 
     if (loading || gLoading || updating) {
         return <Loading></Loading>
     }
 
     if (error || gError || updateError) {
-        signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
+        loginError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
 
     if (user || gUser) {
@@ -36,14 +36,14 @@ const Signup = () => {
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log('update done');
+        console.log('New account done');
         navigate('/');
     }
     return (
         <div className='flex h-screen justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-secondary shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+                    <h2 className="text-center text-accent text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
                         <div className="form-control w-full max-w-xs">
@@ -115,7 +115,7 @@ const Signup = () => {
                             </label>
                         </div>
 
-                        {signInError}
+                        {loginError}
                         <input className='btn w-full max-w-xs bg-accent text-white' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>

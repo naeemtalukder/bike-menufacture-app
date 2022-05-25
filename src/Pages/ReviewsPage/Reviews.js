@@ -13,8 +13,8 @@ const Reviews = () => {
     return (
         <div className='my-28'>
             <div className='text-center my-4'>
-                <h3 className='text-accent  text-xl font-bold uppercase'>Featured Reviews</h3>
-                <h2 className='text-4xl'>Thoughts of Our Well-Wishers</h2>
+                <h3 className='text-accent my-4 text-4xl font-bold uppercase'>Featured Reviews</h3>
+                <h2 className='text-2xl mb-5'>Thoughts of Our Well-Wishers</h2>
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {

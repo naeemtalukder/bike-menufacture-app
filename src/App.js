@@ -15,6 +15,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Reviews from './Pages/ReviewsPage/Reviews';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import AddReview from './Pages/Dashboard/AddReview';
+import AllProducts from './Pages/AllProducts/AllProducts';
+import Order from './Pages/Home/Order';
+import AddProducts from './Pages/Dashboard/AddProducts';
+import ManageProduct from './Pages/Dashboard/ManageProduct';
+import Protfolio from './Pages/Protfolio/Protfolio';
 
 
 function App() {
@@ -24,12 +29,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="blogs" element={<Blogs />} />
+        <Route path="portfolio" element={<Protfolio />} />
         <Route path="reviews" element={<Reviews />} />
+        <Route path="products" element={<AllProducts />} />
+        <Route path='products/:productId' element={
+          <RequireAuth>
+            <Order></Order>
+          </RequireAuth>
+        }></Route>
         <Route path="dashboard" element={
           <RequireAuth><Dashboard /></RequireAuth>
         }>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='addReview' element={<AddReview></AddReview>}></Route>
+          <Route path='addproduct' element={<AddProducts></AddProducts>}></Route>
+          <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />

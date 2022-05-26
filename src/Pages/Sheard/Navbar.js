@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,16 +11,18 @@ const Navbar = () => {
     };
 
     const menuItem = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
-        <li><Link to='/reviews'>Reviews</Link></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/blogs'>Blogs</NavLink></li>
+        <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
+        <li><NavLink to='/reviews'>Reviews</NavLink></li>
+        <li><NavLink to='/products'>AllProducts</NavLink></li>
         {
-            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+            user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
     </>
     return (
-        <div className="navbar bg-accent text-white sticky top-0">
+        <div className="navbar bg-accent text-white">
             <div className="navbar-start ">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">

@@ -1,8 +1,8 @@
 import React from 'react';
 import useProducts from '../../Hoock/useProducts';
-import Product from './Product';
+import AllProduct from './AllProduct';
 
-const Products = () => {
+const AllProducts = () => {
     const [products] = useProducts();
 
     return (
@@ -13,14 +13,14 @@ const Products = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    products.slice(0, 6).map(product => <Product
+                    products.map(product => <AllProduct
                         key={product._id}
                         product={product}
-                    ></Product>)
+                    ></AllProduct>)
                 }
             </div>
         </div>
     );
 };
 
-export default Products;
+export default AllProducts;

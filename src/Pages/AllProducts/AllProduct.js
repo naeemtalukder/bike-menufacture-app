@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const Product = ({ product }) => {
+const AllProduct = ({ product }) => {
     const { img, name, price, quantity, description } = product;
     const navigate = useNavigate();
     const handleNavigateProduct = id => {
@@ -26,4 +26,4 @@ const Product = ({ product }) => {
     );
 };
 
-export default Product;
+export default AllProduct;

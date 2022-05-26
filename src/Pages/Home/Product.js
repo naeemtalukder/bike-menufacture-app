@@ -20,7 +20,7 @@ const Product = ({ product }) => {
                 <p>{description}</p>
                 <button
                     onClick={() => handleNavigateProduct(product._id)}
-                    className="btn btn-accent text-bold text-white uppercase">Bay Now</button>
+                    className="btn btn-accent text-bold text-white uppercase">Order</button>
             </div>
         </div>
     );

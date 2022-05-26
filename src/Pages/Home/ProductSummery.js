@@ -1,5 +1,4 @@
 import React from 'react';
-import bike from '../../images/contact.jpg';
 import Summary from './Summary';
 
 const ProductSummery = () => {
@@ -7,7 +6,6 @@ const ProductSummery = () => {
         <div class="hero min-h-screen bg-secondary">
 
             <div class="hero-content  flex-col lg:flex-row-reverse">
-                {/* <img src="" class="max-w-sm rounded-lg shadow-2xl" /> */}
                 <div>
                     <h1 class="text-3xl text-center uppercase text-accent font-bold my-2">Million Business trust BD</h1>
                     <h1 class="text-xl uppercase text-center pb-16 font-bold">Try to understand user expectation</h1>

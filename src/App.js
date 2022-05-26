@@ -16,10 +16,10 @@ import Reviews from './Pages/ReviewsPage/Reviews';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import AddReview from './Pages/Dashboard/AddReview';
 import AllProducts from './Pages/AllProducts/AllProducts';
-import Order from './Pages/Home/Order';
 import AddProducts from './Pages/Dashboard/AddProducts';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Protfolio from './Pages/Protfolio/Protfolio';
+import Order from './Pages/Home/Order';
 
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         <Route path="products" element={<AllProducts />} />
         <Route path='products/:productId' element={
           <RequireAuth>
-            <Order></Order>
+            <Order />
           </RequireAuth>
         }></Route>
         <Route path="dashboard" element={

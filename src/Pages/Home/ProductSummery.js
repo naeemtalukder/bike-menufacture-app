@@ -1,16 +1,27 @@
 import React from 'react';
 import bike from '../../images/contact.jpg';
+import Summary from './Summary';
 
 const ProductSummery = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div class="hero min-h-screen bg-secondary">
+
+            <div class="hero-content  flex-col lg:flex-row-reverse">
+                {/* <img src="" class="max-w-sm rounded-lg shadow-2xl" /> */}
                 <div>
-                    <h1 className="text-3xl lg:text-5xl font-bold">Bicycle and Bike Parts Manufacturers</h1>
-                    <p className="py-6">Some bike enthusiasts are very brand loyal. At BikeParts.com we know this, and that is why we carry bike parts, tools and bicycle accessories from about 600 of the top manufacturers in the industry.
-                        We want to be your one-stop shop for bicycle parts online and for every one of your bike tools and bicycle accessories needs. We are working hard to make it easy for you to find exactly what you want. That is why we allow searching not only by type of bike part, but also by manufacturer.
-                        Just click on your favorite brand and you will be able to browse through our entire inventory of items by that manufacturer. Take some time to peruse the offerings of some of your favorites. They might have new items that you don’t even know about yet.</p>
-                    <button className="btn btn-accent">Get Started</button>
+                    <h1 class="text-3xl text-center uppercase text-accent font-bold my-2">Million Business trust BD</h1>
+                    <h1 class="text-xl uppercase text-center pb-16 font-bold">Try to understand user expectation</h1>
+                    <Summary></Summary>
+                    <div class="card my-3 bg-base-100 lg:card-side shadow-xl">
+                        <div class="card-body">
+                            <h3 className='text-xl text-primary font-bold'>Have any question about us or get a products request. </h3>
+                            <p className='text-xl'>Don't hesitate to contact us.</p>
+                        </div>
+                        <div className="flex pt-10">
+                            <button className='btn uppercase btn-primary text-white'>Request Quote</button>
+                            <button className='btn uppercase btn-accent mx-2'>Contact us</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

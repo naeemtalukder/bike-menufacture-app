@@ -20,10 +20,10 @@ const AddReview = () => {
             })
     }
     return (
-        <div class="hero min-h-screen">
-            <div class="hero-content text-center">
-                <div class="max-w-md">
-                    <h1 class="text-2xl font-bold my-3">Please Add Review!</h1>
+        <div className="hero min-h-screen">
+            <div className="hero-content text-center">
+                <div className="max-w-md">
+                    <h1 className="text-2xl font-bold my-3">Please Add Review!</h1>
                     <form onSubmit={handleSubmit(onSubmit)}
                         className="">
                         <input className="input input-bordered w-full max-w-xs" placeholder='Name' {...register("name", { required: true, maxLength: 20 })} />

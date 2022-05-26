@@ -3,11 +3,11 @@ import React from 'react';
 
 const Protfolio = () => {
     return (
-        <div class="hero min-h-screen bg-base-100">
-            <div class="hero-content text-center">
-                <div class="max-w-md">
-                    <h1 class="text-3xl font-bold">Name: Md. Naeem Talukder</h1>
-                    <p class="">Email: naeemtalukder169135@gmail.com</p>
+        <div className="hero min-h-screen bg-base-100">
+            <div className="hero-content text-center">
+                <div className="max-w-md">
+                    <h1 className="text-3xl font-bold">Name: Md. Naeem Talukder</h1>
+                    <p className="">Email: naeemtalukder169135@gmail.com</p>
                     <div className='py-6'><h1 className='text-xl'>Education: Honurs <small>(Running)</small></h1>
                         <h1 className='text-xl'>Depatment: Philosophy</h1>
                         <h1 className='text-xl'>College: Govt. Titumir College </h1>

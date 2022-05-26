@@ -12,15 +12,15 @@ const Order = () => {
     }, [productId, setProducts]);
 
     return (
-        <div class="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={products.img} alt="" /></figure>
-            <div class="card-body">
-                <h2 class="card-title">Name: {products.name} </h2>
+            <div className="card-body">
+                <h2 className="card-title">Name: {products.name} </h2>
                 <p>Price: {products.price}</p>
                 <p>Quantity: {products.quantity}</p>
                 <p>{products.description}</p>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Pay</button>
+                <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Pay</button>
                 </div>
             </div>
         </div>

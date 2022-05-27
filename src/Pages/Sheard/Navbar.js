@@ -8,14 +8,15 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     };
 
     const menuItem = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/products'>All Products</NavLink></li>
+        <li><NavLink to='/reviews'>Reviews</NavLink></li>
         <li><NavLink to='/blogs'>Blogs</NavLink></li>
         <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
-        <li><NavLink to='/reviews'>Reviews</NavLink></li>
-        <li><NavLink to='/products'>AllProducts</NavLink></li>
         {
             user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         }
@@ -32,7 +33,7 @@ const Navbar = () => {
                         {menuItem}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Bike Manufacture</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Bike Manufacture BD</Link>
             </div>
             <div className="navbar-center hidden  lg:flex">
                 <ul className="menu menu-horizontal p-0">

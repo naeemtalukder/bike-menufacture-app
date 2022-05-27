@@ -22,6 +22,7 @@ const ManageProduct = () => {
     return (
         <>
             <div className="overflow-x-auto w-full">
+                <h1 className='text-2xl text-center text-accent mb-5'>Manage Product {products.length}</h1>
                 <table className="table w-full">
                     <thead>
                         <tr>
@@ -35,9 +36,9 @@ const ManageProduct = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(p => <tr>
+                            products.map((p, index) => <tr>
 
-                                <td></td>
+                                <td>{index + 1}</td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">

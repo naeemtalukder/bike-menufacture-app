@@ -3,7 +3,7 @@ import React from 'react';
 
 const Protfolio = () => {
     return (
-        <div className="hero min-h-screen bg-base-100">
+        <div className="hero min-h-screen bg-base-200">
             <div className="hero-content text-center">
                 <div className="max-w-md">
                     <h1 className="text-3xl font-bold">Name: Md. Naeem Talukder</h1>
@@ -24,7 +24,7 @@ const Protfolio = () => {
                             <li>Node</li>
                             <li>Express</li>
                             <li>MongoDB</li>
-                            <li>Wardpress</li>
+                            <li>Wordpress</li>
                             <li>Netlipy</li>
                             <li>Firebase</li>
                             <li>GitHub</li>

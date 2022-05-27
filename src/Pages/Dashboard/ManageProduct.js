@@ -21,52 +21,51 @@ const ManageProduct = () => {
     }
     return (
         <>
-            {
-                products.map(product => <div
-                    key={product._id}>
-                    <div className="overflow-x-auto w-full">
-                        <table className="table w-full">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Image</th>
-                                    <th></th>
-                                    <th>Name</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Button</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={product.img} alt="Avatar Tailwind CSS Component" />
-                                                </div>
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Button</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map(p => <tr>
+
+                                <td></td>
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={p.img} alt="Avatar Tailwind CSS Component" />
                                             </div>
                                         </div>
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        {product.name}
-                                    </td>
-                                    <td>{product.quantity}</td>
-                                    <td>{product.price}</td>
-                                    <th>
-                                        <button
-                                            onClick={() => handleDeleteProduct(product._id)}
-                                            className='btn btn-error text-white'>Delete</button>
-                                    </th>
-                                </tr>
-                            </tbody>
+                                    </div>
+                                </td>
 
-                        </table>
-                    </div >
-                </div>)
-            }
+                                <td>
+                                    {p.name}
+                                </td>
+                                <td>{p.quantity}</td>
+                                <td>{p.price}</td>
+                                <th>
+                                    <button
+                                        onClick={() => handleDeleteProduct(p._id)}
+                                        className='btn btn-error text-white'>Delete</button>
+                                </th>
+                            </tr>)
+                        }
+
+                    </tbody>
+
+                </table>
+            </div >
+
         </>
     );
 };

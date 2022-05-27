@@ -20,6 +20,9 @@ import AddProducts from './Pages/Dashboard/AddProducts';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Protfolio from './Pages/Protfolio/Protfolio';
 import Order from './Pages/Home/Order';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import ManageAllProduct from './Pages/Dashboard/ManageAllProduct';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 
 
 function App() {
@@ -40,10 +43,13 @@ function App() {
         <Route path="dashboard" element={
           <RequireAuth><Dashboard /></RequireAuth>
         }>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='myOrder' element={<MyOrders></MyOrders>}></Route>
           <Route path='addReview' element={<AddReview></AddReview>}></Route>
           <Route path='addproduct' element={<AddProducts></AddProducts>}></Route>
+          <Route index element={<MyProfile />}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
+          <Route path='manageAllProduct' element={<ManageAllProduct />}></Route>
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />

@@ -21,29 +21,30 @@ const Order = () => {
     const { id, name } = products;
 
     const handleOrder = event => {
-        event.preventDefault();
-        const order = {
-            productId: id,
-            products: name,
-            user: user.email,
-            userName: user.displayName,
-            quantity: event.target.quantity.value,
-            phone: event.target.phone.value
-        }
+        const proceed = window.confirm('Are You Sure');
+        if (proceed) {
+            event.preventDefault();
+            const order = {
+                productId: id,
+                products: name,
+                user: user.email,
+                userName: user.displayName,
+                quantity: event.target.quantity.value,
+                phone: event.target.phone.value
+            }
 
-        fetch('http://localhost:5000/order', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(order)
-        })
-            .then(res => res.json())
-            .then(result => {
-                setProducts(null);
+            fetch('http://localhost:5000/order', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(order)
             })
-
-
+                .then(res => res.json())
+                .then(result => {
+                    setProducts(null);
+                })
+        }
     }
 
     return (

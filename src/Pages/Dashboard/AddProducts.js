@@ -26,11 +26,11 @@ const AddProducts = () => {
                     <form onSubmit={handleSubmit(onSubmit)}
                         className="">
                         <input className="input input-bordered w-full max-w-xs" placeholder='Name' {...register("name", { required: true, maxLength: 30 })} />
-                        <input className="input input-bordered w-full max-w-xs" placeholder='Price' {...register("price")} />
+                        <input className="input input-bordered w-full my-2 max-w-xs" placeholder='Price' {...register("price")} />
                         <input className="input input-bordered w-full max-w-xs" placeholder='Quantity' {...register("quantity")} />
                         <textarea className="input input-bordered my-2 w-full max-w-xs" placeholder='Description' {...register("description", { required: true, maxLength: 200 })} />
                         <input className="input input-bordered w-full max-w-xs" placeholder='Photo' {...register("img")} />
-                        <input className="btn btn-accent w-full my-2 max-w-xs" type="submit" value="Add Review" />
+                        <input className="btn btn-accent w-full my-2 max-w-xs" type="submit" value="Add Product" />
                     </form>
                 </div>
             </div>

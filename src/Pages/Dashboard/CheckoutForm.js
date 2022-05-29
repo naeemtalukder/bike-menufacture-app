@@ -5,6 +5,31 @@ const CheckoutForm = ({ payment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
+    const [clientSecret, setClientSecret] = useState('');
+
+    const { _id, price, userName, user } = payment;
+
+    useEffect(() => {
+        fetch('https://evening-temple-41024.herokuapp.com/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ price })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.clientSecret) {
+                    setClientSecret(data?.clientSecret);
+                }
+            });
+
+    }, [price])
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,6 +48,55 @@ const CheckoutForm = ({ payment }) => {
             type: 'card',
             card
         });
+
+        setCardError(error?.message || '')
+        setSuccess('');
+        setProcessing(true);
+
+
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: userName,
+                        email: user
+                    },
+                },
+            },
+        );
+
+        if (intentError) {
+            setCardError(intentError?.message);
+            setProcessing(false);
+        }
+        else {
+            setCardError('');
+            setTransactionId(paymentIntent.id);
+            console.log(paymentIntent);
+            setSuccess('Congrats! Your payment is completed.')
+
+            //store payment on database
+            const payment = {
+                payment: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`https://evening-temple-41024.herokuapp.com/order/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
+
+        }
     }
     return (
         <>
@@ -43,11 +117,19 @@ const CheckoutForm = ({ payment }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm my-5' type="submit" disabled={!stripe}>
+                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || clientSecret || success}>
                     Pay
                 </button>
             </form>
-
+            {
+                cardError && <p className='text-red-500'>{cardError}</p>
+            }
+            {
+                success && <div className='text-green-500'>
+                    <p>{success}  </p>
+                    <p>Your transaction Id: <span className="text-orange-500 font-bold">{transactionId}</span> </p>
+                </div>
+            }
         </>
     );
 };

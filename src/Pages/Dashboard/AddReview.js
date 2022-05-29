@@ -1,12 +1,17 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 
 const AddReview = () => {
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/reviews";
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/review`;
+        const url = `https://evening-temple-41024.herokuapp.com/review`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -17,6 +22,7 @@ const AddReview = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                navigate(from, { replace: true });
             })
     }
     return (

@@ -18,7 +18,7 @@ const Order = () => {
     let from = location.state?.from?.pathname || "/products";
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${productId}`)
+        fetch(`https://evening-temple-41024.herokuapp.com/product/${productId}`)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [productId, setProducts]);
@@ -30,6 +30,7 @@ const Order = () => {
             event.preventDefault();
             const order = {
                 productId: id,
+                price: price,
                 products: name,
                 user: user.email,
                 userName: user.displayName,
@@ -37,7 +38,7 @@ const Order = () => {
                 phone: event.target.phone.value
             }
 
-            fetch('http://localhost:5000/order', {
+            fetch('https://evening-temple-41024.herokuapp.com/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +78,7 @@ const Order = () => {
                             <form onSubmit={handleOrder} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                                 <input type="text" name="name" disabled value={user.displayName} placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name="products" disabled value={name} placeholder="Products Name" className="input input-bordered w-full max-w-xs" />
-                                <input type="text" name="price" disabled value={price} placeholder="Price" className="input input-bordered w-full max-w-xs" />
+                                <input type="price" name="price" disabled value={price} placeholder="Price" className="input input-bordered w-full max-w-xs" />
                                 <input type="email" name="email" disabled value={user.email} placeholder="Email Address" className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name="quantity" placeholder="Products Quantity" className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />

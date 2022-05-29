@@ -7,7 +7,7 @@ const ManageProduct = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm('Are You Sure');
         if (proceed) {
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://evening-temple-41024.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -36,7 +36,7 @@ const ManageProduct = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((p, index) => <tr>
+                            products.map((p, index) => <tr key={p._id}>
 
                                 <td>{index + 1}</td>
                                 <td>

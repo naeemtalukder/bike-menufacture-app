@@ -1,11 +1,16 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const AddProducts = () => {
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/products";
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/product`;
+        const url = `https://evening-temple-41024.herokuapp.com/product`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -16,6 +21,7 @@ const AddProducts = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                navigate(from, { replace: true });
             })
     }
     return (

@@ -12,7 +12,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?user=${user.email}`, {
+            fetch(`https://evening-temple-41024.herokuapp.com/order?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -48,7 +48,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders?.map((o, index) => <tr>
+                            orders?.map((o, index) => <tr key={o._id}>
                                 <th>{index + 1}</th>
                                 <td>{o?.userName}</td>
                                 <td>{o?.user}</td>
@@ -56,7 +56,7 @@ const MyOrders = () => {
                                 <td>{o?.quantity}</td>
                                 <td>{o?.phone}</td>
                                 <td>
-                                    {(o.price && !o.paid) && <Link to={`dashboard/payment/${o._id}`}><button className="btn btn-xs btn-success">Pay</button></Link>}
+                                    {(o.price && !o.paid) && <Link to={`/dashboard/payment/${o._id}`}><button className="btn btn-xs btn-success">Pay</button></Link>}
                                     {(o.price && o.paid) && <span className="btn btn-xs btn-success">Paid</span>}
                                 </td>
                             </tr>)
